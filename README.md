@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <html>
+
+    <head>
+        <title>Sistema Escolar</title>
+    </head>
+
+    <style>
+        body {
+            background-color: rgba(248, 6, 248, 0.192)
+        }
+
+        .titulo {
+            font-size: 20px;
+            color: rgb(248, 248, 248);
+            margin-top: 90px;
+            text-align: center;
+
+        }
+        .formulario{
+            background-color: rgb(27, 41, 36);
+            width: 600px;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid rgb(202, 164, 164);
+            margin: auto;
+        }
+        .cadastrar{
+            cursor: pointer;
+            margin: auto;
+            display: block;
+        }
+        .resultado{
+            background-color: rgb(255, 73, 17);
+            width: 450px;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid rgb(166, 255, 0);
+            margin: auto;
+            margin-top: 50px;
+
+
+        }
+    
+    </style>
+
+<body>
+
+    <div class="titulo">
+        <h1> EEB Dom Jaime de Barros Câmara</h1>
+        <p>Preencha o formulário abaixo para cadastrar um novo aluno</p>
+
+    </div>
+
+    <div class="formulario">
+    
+        <form>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome"><br><br>
+
+            <label for="dataNasc">Data de Nascimento</label>
+            <input type="date" id= "dataNasc" name="dataNasc"><br><br>
+
+            <label for="dados">dados: </label>
+            <input type="text" id="dados" name="dados"><br><br>
+
+            <label for="setor">setor:</label>
+            <input type="text" id="setor" name="setor"><br><br>
+
+            <label for="tecnico">tecnico:</label>
+            <input type="text" id="tecnico" name="tecnico"><br><br>
+
+            <label for="experiencia">experiencia:</label>
+            <input type="text" id="escola" name="escola"><br><br>
+
+            <label for="cep">CEP:</label>
+            <input type="text" id="estadonatal" name="estadonatal"><br><br>
+
+            <button type="button" class="cadastrar" onclick="mostrarDados()" >Cadastrar</button>
+
+            
+
+
+        </form>
+    </div>
+
+    <div id="resultado" class="resultado">
+    </div>
+
+    <script>
+        function mostrarDados(){
+            let nome = document.getElementById("nome").value;
+            let dataNasc = document.getElementById("dataNasc").value;
+            let dados = document.getElementById("dados").value;
+            let setor = document.getElementById("setor").value;
+            let tecnico = document.getElementById("tecnico").value;
+            let escola = document.getElementById("escola").value;
+            let estadonatal = document.getElementById("estadonatal").value;
+            
+
+            let resultado = document.getElementById("resultado")
+
+            document.getElementById("resultado").innerHTML = "<h2>Dados Informador: <h2>" +
+                "Nome: " + nome + "<br>" +
+                "Data de Nascimento: " + dataNasc + "<br>" +
+                "dados: " + dados + "<br>" +
+                "setor:" + setor + "<br>" +
+                "tecnico:" + tecnico + "<br>" +
+                "experiencia:" + escola + "<br>" +
+                "CEP:" + estadonatal;
+
+                resultado.style.display ="block"
+
+                
+        }
+    </script>
+</body>
+
+</html>
