@@ -1,0 +1,77 @@
+         <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Alunos</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f4f4;
+      text-align: center;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+      margin: 5px;
+      padding: 10px;
+      width: 90%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Cadastro de Alunos</h2>
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="text" id="serie" placeholder="Série">
+    <button onclick="cadastrar()">Cadastrar</button>
+  </div>
+
+  <div class="box">
+    <h2>Buscar Aluno</h2>
+    <input type="text" id="busca" placeholder="Digite o nome">
+    <button onclick="buscar()">Buscar</button>
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    let alunos = [];
+
+    function cadastrar() {
+      let nome = document.getElementById("nome").value;
+      let serie = document.getElementById("serie").value;
+
+      if (nome === "" || serie === "") {
+        alert("Preencha todos os campos");
+        return;
+      }
+
+      alunos.push({ nome, serie });
+
+      alert("Aluno cadastrado!");
+      document.getElementById("nome").value = "";
+      document.getElementById("serie").value = "";
+    }
+
+    function buscar() {
+      let busca = document.getElementById("busca").value.toLowerCase();
+      let resultado = alunos.find(a => a.nome.toLowerCase() === busca);
+
+      if (resultado) {
+        document.getElementById("resultado").innerText =
+          `Nome: ${resultado.nome}, Série: ${resultado.serie}`;
+      } else {
+        document.getElementById("resultado").innerText =
+          "Reprovado, motivo: Falta";
+      }
+    }
+  </script>
+
+</body>
+</html>
